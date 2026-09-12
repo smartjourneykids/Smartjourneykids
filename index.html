@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Home | Smart Journey Kids 🦁</title>
+  <meta name="description" content="Early Childhood Learning Platform">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 13px;
+      border: 1.5px solid #fde68a;
+      margin-bottom: 16px;
+    }
+    .hero-banner-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 3.5px solid #0c2340;
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: 0 12px 28px rgba(12,35,64,0.12);
+      text-align: center;
+    }
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin: 35px 0 10px 0;
+    }
+    .stat-card {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .stat-card b {
+      font-size: 26px;
+      color: #0c2340;
+      display: block;
+    }
+    .stat-card span {
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .feature-bubble {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .feature-bubble:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 22px rgba(12,35,64,0.1);
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 25px;
+    }
+    .video-card {
+      background: #ffffff;
+      border: 3px solid #0c2340;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(12,35,64,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000000;
+      position: relative;
+      cursor: pointer;
+    }
+    .video-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+    .play-overlay:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
+    .play-btn-circle {
+      width: 58px;
+      height: 58px;
+      background: #ef4444;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 24px;
+      padding-left: 4px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease;
+    }
+    .play-overlay:hover .play-btn-circle {
+      transform: scale(1.1);
+    }
+    .video-info {
+      padding: 16px;
+    }
+    .video-info h3 {
+      font-size: 18px;
+      color: #0c2340;
+      margin: 6px 0;
+      line-height: 1.35;
+    }
+    .video-info p {
+      font-size: 13px;
+      color: #64748b;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a href="index.html"><img class="logo-mini" src="assets/smart-journey-kids-logo.png" alt="Smart Journey Kids"></a>
+    <button class="menu" aria-label="Open menu">☰</button>
+    <nav class="nav">
+      <a class="active" href="index.html">Home</a>
+      <a href="activities.html">Activities</a>
+      <a href="flashcards.html">A-Z Flashcards</a>
+      <a href="games.html">Games</a>
+      <a href="stories.html">Stories</a>
+      <a href="worksheets.html">Worksheets</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section class="hero" style="padding-top: 40px; padding-bottom: 50px;">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge-pill">
+          <span>🦁</span> අංක 1 මුල් ළමාවිය ඉගෙනුම් මාවත
+        </div>
+        <h1 style="line-height: 1.15; margin-bottom: 16px;">
+          Little steps.<br>
+          <span style="color: #0284c7;">Big adventures!</span> 🚀
+        </h1>
+        <p style="font-size: 17px; line-height: 1.6; color: #475569;">
+          දරුවාගේ මනස දැනුමෙන්, සතුටෙන් සහ නිර්මාණශීලීත්වයෙන් පුරවන ආරක්ෂිත ළමා ලෝකය. සිංදු, කතන්දර, සෙල්ලම් සහ ඉගෙනුම් කට්ටල එකම තැනකින්!
+        </p>
+        
+        <div class="actions" style="margin-top: 24px; gap: 12px; display: flex; flex-wrap: wrap;">
+          <a class="btn btn-primary" href="flashcards.html" style="font-size: 15px; padding: 12px 24px;">🔤 A-Z Flashcards</a>
+          <a class="btn btn-gold" href="shop.html" style="font-size: 15px; padding: 12px 24px;">🛍️ Shop Learning Kits</a>
+        </div>
+      </div>
+
+      <!-- Mascot Card -->
+      <div class="hero-art">
+        <div class="hero-banner-card">
+          <img src="assets/smart-journey-kids-logo.png" alt="Leo the Lion" style="width: 190px; height: 190px; object-fit: contain; margin: 0 auto 12px auto; display: block;">
+          <div style="font-weight: 800; font-size: 20px; color: #0c2340;">Meet Leo the Lion! 🦁</div>
+          <p style="font-size: 13px; color: #64748b; margin-top: 4px;">"එන්න, අපි එකතු වෙලා අකුරු, සින්දු සහ ලස්සන චිත්‍ර අඳිමු!"</p>
+          <div style="margin-top: 14px; display: flex; gap: 8px; justify-content: center;">
+            <a href="games.html" class="btn btn-light" style="padding: 7px 16px; font-size: 13px;">Mini Games</a>
+            <a href="painting.html" class="btn btn-primary" style="padding: 7px 16px; font-size: 13px; background:#10b981;">Paint Board</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats Bar -->
+    <div class="container">
+      <div class="stats-bar">
+        <div class="stat-card">
+          <b>100%</b>
+          <span>Kid-Safe Screen Time</span>
+        </div>
+        <div class="stat-card">
+          <b>26</b>
+          <span>A-Z 3D Flashcards</span>
+        </div>
+        <div class="stat-card">
+          <b>Free</b>
+          <span>Printable Worksheets</span>
+        </div>
+        <div class="stat-card">
+          <b>Islandwide</b>
+          <span>Home Delivery 🚚</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Showcase Section -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head" style="text-align: center; margin-bottom: 10px;">
+        <div class="eyebrow" style="margin: 0 auto;">Sing & Learn</div>
+        <h2 style="margin-top: 6px;">Smart Journey Kids නිල ළමා ගීත එකතුව 🎵🎬</h2>
+        <p>නැණවත් දරුවන් වෙනුවෙන්ම නිර්මාණය කළ මිහිරි ළමා ගීත සහ කතන්දර එකතුව රසවිඳින්න.</p>
+      </div>
+
+      <div class="video-grid">
+        <!-- Video 1: ABC Song -->
+        <div class="video-card">
+          <div class="video-frame" id="player-1" onclick="playVideo('player-1', 'IraH17XD3UA')">
+            <img src="https://img.youtube.com/vi/IraH17XD3UA/hqdefault.jpg" alt="ABC Song">
+            <div class="play-overlay">
+              <div class="play-btn-circle">▶</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <span class="badge" style="background:#bae6fd; color:#0369a1;">🔤 ALPHABET SONG</span>
+            <h3>ABC Song for Kids | ඉංග්‍රීසි හෝඩිය</h3>
+            <p>ඉංග්‍රීසි හෝඩියේ අකුරු 26ම හරිම ආසාවෙන් මතක තබාගන්න පුංචි පැටවුන්ටම විශේෂයි.</p>
+          </div>
+        </div>
+
+        <!-- Video 2: Hinchi Pinchi Hawa -->
+        <div class="video-card">
+          <div class="video-frame" id="player-2" onclick="playVideo('player-2', 'HF5PoHTNCsw')">
+            <img src="https://img.youtube.com/vi/HF5PoHTNCsw/hqdefault.jpg" alt="Hinchi Pinchi Hawa">
+            <div class="play-overlay">
+              <div class="play-btn-circle">▶</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <span class="badge" style="background:#fed7aa; color:#c2410c;">🐰 STORY SONG</span>
+            <h3>හිංචි පිංචි හාවා - ඉබ්බයි හාවයි කතන්දරේ</h3>
+            <p>ඉබ්බයි හාවයිගේ සුප්‍රසිද්ධ කතන්දරය ආදරණීය ළමා ගීතයක් සමඟින් රසවිඳින්න.</p>
+          </div>
+        </div>
+
+        <!-- Video 3: Ape Adara Guruthumiya -->
+        <div class="video-card">
+          <div class="video-frame" id="player-3" onclick="playVideo('player-3', 'kXtFCFMPhyM')">
+            <img src="https://img.youtube.com/vi/kXtFCFMPhyM/hqdefault.jpg" alt="Ape Adara Guruthumiya">
+            <div class="play-overlay">
+              <div class="play-btn-circle">▶</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <span class="badge" style="background:#fef08a; color:#854d0e;">👩‍🏫 RESPECT</span>
+            <h3>අපේ ආදර ගුරුතුමිය 👩‍🏫❤️</h3>
+            <p>ගුරුතුමියට ගරු කිරීම සහ ආදරය කියාදෙන ගුණධාර්මික සුන්දර ළමා ගීතය.</p>
+          </div>
+        </div>
+
+        <!-- Video 4: Le Kiri Karala -->
+        <div class="video-card">
+          <div class="video-frame" id="player-4" onclick="playVideo('player-4', 'yWIj-2hgggw')">
+            <img src="https://img.youtube.com/vi/yWIj-2hgggw/hqdefault.jpg" alt="Le Kiri Karala">
+            <div class="play-overlay">
+              <div class="play-btn-circle">▶</div>
+            </div>
+          </div>
+          <div class="video-info">
+            <span class="badge" style="background:#fbcfe8; color:#be185d;">🌸 AMMA LOVE</span>
+            <h3>ලේ කිරි කරලා මට ආදරෙන් පෙව්වා 🌸</h3>
+            <p>අම්මාගේ අපරිමිත ආදරය සහ සෙනෙහස දරුවාගේ හදවතටම දැනෙන හැඟීම්බර ගීතය.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational Zones -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Explore Learning</div>
+          <h2>ළමා හැකියාවන් ඔප්නංවන අංශ 🌟</h2>
+        </div>
+        <p>දෙමව්පියන් සහ දරුවන් එක්ව විනෝදයෙන් අත්හදා බලන අධ්‍යාපනික ක්‍රියාකාරකම්.</p>
+      </div>
+
+      <div class="grid-4">
+        <a class="card feature feature-bubble" href="activities.html">
+          <div class="icon blue">🎵</div>
+          <h3>Kids Songs & Animals</h3>
+          <p>සතුන් 9 දෙනෙකුගේ කාඩ්පත් සහ ළමා ක්‍රියාකාරකම්.</p>
+        </a>
+        <a class="card feature feature-bubble" href="stories.html">
+          <div class="icon gold">📖</div>
+          <h3>Stories & Cartoons</h3>
+          <p>දරුවාගේ පරිකල්පනය වඩවන ආදර්ශවත් කතන්දර.</p>
+        </a>
+        <a class="card feature feature-bubble" href="flashcards.html">
+          <div class="icon coral">🃏</div>
+          <h3>A-Z Flashcards</h3>
+          <p>3D රූප සහිත ඉංග්‍රීසි හෝඩියේ කාඩ්පත් 26ම බාගත කරගන්න.</p>
+        </a>
+        <a class="card feature feature-bubble" href="games.html">
+          <div class="icon sage">🧩</div>
+          <h3>Matching Pair Game</h3>
+          <p>කාඩ්පත් පෙරළා සමාන රූප යා කර මතකය මනින ක්‍රීඩාව.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creative Studio Feature Section -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Creative Studio</div>
+          <h2>Make, colour & discover 🎨</h2>
+        </div>
+        <a class="btn btn-light" href="activities.html">View all activities →</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card photo-card feature-bubble">
+          <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=900&q=85" alt="Painting studio" style="height: 190px; width: 100%; object-fit: cover;">
+          <div class="photo-body">
+            <span class="badge">CREATIVE</span>
+            <h3>Painting Studio with Shapes</h3>
+            <p>කැන්වසය මත රවුම්, කොටු සහ නොයෙක් පාටවලින් චිත්‍ර ඇඳ Save කරගන්න.</p>
+            <div class="actions" style="margin-top: 14px;">
+              <a class="btn btn-primary" href="painting.html" style="background: #10b981;">Open Studio 🎨</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card photo-card feature-bubble">
+          <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=900&q=85" alt="Worksheets" style="height: 190px; width: 100%; object-fit: cover;">
+          <div class="photo-body">
+            <span class="badge">PRINTABLE</span>
+            <h3>Daily Homework & Tracing</h3>
+            <p>හෝඩිය සහ ඉලක්කම් ලිවීම පුහුණු වීමට නිවසේදීම Print කරගත හැකි Worksheets.</p>
+            <div class="actions" style="margin-top: 14px;">
+              <a class="btn btn-primary" href="worksheets.html">Download PDF 📝</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card photo-card feature-bubble">
+          <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=900&q=85" alt="Learning box" style="height: 190px; width: 100%; object-fit: cover;">
+          <div class="photo-body">
+            <span class="badge">WHATSAPP SHOP</span>
+            <h3>Physical Educational Kits</h3>
+            <p>Flashcards සහ Magic Tracing Books කෙලින්ම WhatsApp එකෙන් Order කරන්න.</p>
+            <div class="actions" style="margin-top: 14px;">
+              <a class="btn btn-gold" href="shop.html">Shop Kits 🛍️</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/smart-journey-kids-logo.png" alt="Smart Journey Kids">
+      <p>Smart Journey Kids</p>
+      <p style="font-size: 12px; color: #94a3b8; margin-top: 6px;">Early Childhood Learning Brand 🦁</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="activities.html">Activities</a>
+      <a href="flashcards.html">A-Z Flashcards</a>
+      <a href="games.html">Games</a>
+      <a href="worksheets.html">Worksheets</a>
+    </div>
+    <div>
+      <h4>Shop & Connect</h4>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/94785011108" target="_blank" rel="noopener">WhatsApp: 94785011108</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© <span id="year"></span> Smart Journey Kids. All rights reserved.</div>
+</footer>
+
+<script>
+  function playVideo(containerId, videoId) {
+    const box = document.getElementById(containerId);
+    box.innerHTML = `<iframe style="width:100%; height:100%; border:none; display:block;" src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  }
+</script>
+<script src="assets/app.js"></script>
+</body>
+</html>

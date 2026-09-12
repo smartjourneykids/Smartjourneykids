@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A-Z Alphabet Flashcards | Smart Journey Kids 🦁</title>
+  <meta name="description" content="English Alphabet Flashcards">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .fc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 26px;
+      margin-top: 30px;
+    }
+    .fc-card {
+      background: #ffffff;
+      border: 3.5px solid #0c2340;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 22px rgba(12, 35, 64, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .fc-img-box {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #f1f5f9;
+      border-bottom: 3px solid #0c2340;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .fc-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .fc-body {
+      padding: 18px;
+    }
+    .fc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .fc-title {
+      font-size: 30px;
+      font-weight: 900;
+      color: #0c2340;
+      margin: 0;
+    }
+    .fc-badge {
+      background: #fef08a;
+      color: #854d0e;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1.5px solid #fde047;
+    }
+    .fc-sin {
+      color: #0284c7;
+      font-weight: 800;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .btn-down {
+      display: block;
+      width: 100%;
+      background: #0c2340;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-sizing: border-box;
+      margin-bottom: 12px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-down:hover {
+      background: #1e3a8a;
+    }
+    .comment-area {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 10px;
+    }
+    .chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 8px;
+      min-height: 24px;
+    }
+    .chip {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .comment-input-row {
+      display: flex;
+      gap: 6px;
+    }
+    .comment-input-row input {
+      flex: 1;
+      padding: 6px 8px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 12px;
+    }
+    .comment-input-row button {
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a href="index.html"><img class="logo-mini" src="assets/smart-journey-kids-logo.png" alt="Smart Journey Kids"></a>
+    <button class="menu" aria-label="Open menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="activities.html">Activities</a>
+      <a class="active" href="flashcards.html">A-Z Flashcards</a>
+      <a href="games.html">Games</a>
+      <a href="stories.html">Stories</a>
+      <a href="worksheets.html">Worksheets</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero" style="background: linear-gradient(135deg, #fef08a 0%, #bae6fd 100%); text-align: center;">
+    <div class="container">
+      <div class="eyebrow" style="background:#0c2340; color:#fde047; display:inline-block; padding:4px 16px; border-radius:99px;">
+        Early Childhood Learning
+      </div>
+      <h1 style="color:#0c2340; margin: 12px 0 6px 0;">English Alphabet A to Z Flashcards 🔤</h1>
+      <p style="color:#334155; max-width: 600px; margin: 0 auto 16px auto;">
+        අකුරු 26ම රූප සමඟ ඉගෙන ගනිමු! පින්තූර Download කරගන්න, තවත් වචන Comment කරන්න.
+      </p>
+      
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <!-- Download Complete PDF Book Link -->
+        <a href="assets/English Alphabat.pdf" download="English_Alphabet_A-Z_SmartJourneyKids.pdf" class="btn btn-primary" style="background:#0284c7; padding: 10px 22px; font-size:14px; text-decoration: none;">
+          📥 Download Original PDF Book
+        </a>
+        <button onclick="window.print()" class="btn btn-primary" style="background:#10b981; padding: 10px 22px; font-size:14px;">
+          🖨️ Print / Save Cards
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="fc-grid" id="deckContainer">
+        <!-- 26 Cards generated below -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/smart-journey-kids-logo.png" alt="Smart Journey Kids">
+      <p>Smart Journey Kids</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="activities.html">Activities</a>
+      <a href="flashcards.html">A-Z Flashcards</a>
+      <a href="games.html">Games</a>
+      <a href="worksheets.html">Worksheets</a>
+    </div>
+    <div>
+      <h4>Shop & Connect</h4>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/94770000000" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© <span id="year"></span> Smart Journey Kids</div>
+</footer>
+
+<script>
+  // Complete list based exactly on your PDF
+  const pdfDeck = [
+    { l: 'A', word: 'Apple', sin: 'ඇපල්' },
+    { l: 'B', word: 'Bear', sin: 'වලහා' },
+    { l: 'C', word: 'Cat', sin: 'පූසා' },
+    { l: 'D', word: 'Dog', sin: 'බල්ලා' },
+    { l: 'E', word: 'Elephant', sin: 'අලියා' },
+    { l: 'F', word: 'Fish', sin: 'මාළුවා' },
+    { l: 'G', word: 'Giraffe', sin: 'ජිරාෆ්' },
+    { l: 'H', word: 'Horse', sin: 'අශ්වයා' },
+    { l: 'I', word: 'Igloo', sin: 'ඉග්ලූ (හිම නිවස)' },
+    { l: 'J', word: 'Jellyfish', sin: 'ජෙලිෆිෂ්' },
+    { l: 'K', word: 'Kangaroo', sin: 'කැන්ගරු' },
+    { l: 'L', word: 'Lion', sin: 'සිංහයා' },
+    { l: 'M', word: 'Monkey', sin: 'වඳුරා' },
+    { l: 'N', word: 'Nest', sin: 'කුරුළු කූඩුව' },
+    { l: 'O', word: 'Owl', sin: 'බස්සා' },
+    { l: 'P', word: 'Penguin', sin: 'පෙන්ගුයින්' },
+    { l: 'Q', word: 'Queen', sin: 'රැජින' },
+    { l: 'R', word: 'Rabbit', sin: 'හාවා' },
+    { l: 'S', word: 'Sun', sin: 'සූර්යයා' },
+    { l: 'T', word: 'Tiger', sin: 'කොටියා' },
+    { l: 'U', word: 'Umbrella', sin: 'කුඩය' },
+    { l: 'V', word: 'Van', sin: 'වෑන් රථය' },
+    { l: 'W', word: 'Whale', sin: 'තල්මසා' },
+    { l: 'X', word: 'Xylophone', sin: 'සයිලෆෝනය' },
+    { l: 'Y', word: 'Yak', sin: 'යාක්' },
+    { l: 'Z', word: 'Zebra', sin: 'සීබ්‍රා' }
+  ];
+
+  const container = document.getElementById('deckContainer');
+
+  pdfDeck.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'fc-card';
+
+    // File path paths support .jpeg, .jpg, uppercase & lowercase in assets/
+    const imgPath = `assets/${item.l}.jpeg`;
+
+    card.innerHTML = `
+      <div class="fc-img-box">
+        <img id="img-${item.l}" src="${imgPath}" alt="${item.word}" onerror="tryNextExt(this, '${item.l}')">
+      </div>
+      <div class="fc-body">
+        <div class="fc-header">
+          <h2 class="fc-title">${item.l} <span style="font-size:20px; color:#64748b;">(${item.l.toLowerCase()})</span></h2>
+          <span class="fc-badge">${item.word}</span>
+        </div>
+        <div class="fc-sin">${item.sin}</div>
+        <a id="btn-${item.l}" href="${imgPath}" download="${item.l}_for_${item.word}.jpeg" class="btn-down">📥 Download Card (${item.l})</a>
+        <div class="comment-area">
+          <label style="font-size:11px; font-weight:bold; color:#475569; display:block; margin-bottom:4px;">${item.l} අකුරෙන් තවත් වචන:</label>
+          <div class="chips-container" id="chips-${item.l}"></div>
+          <div class="comment-input-row">
+            <input type="text" id="in-${item.l}" placeholder="Add word..." onkeypress="if(event.key==='Enter') saveWord('${item.l}')">
+            <button onclick="saveWord('${item.l}')">Add</button>
+          </div>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+    showWords(item.l);
+  });
+
+  // Image extension fallback checker (.jpeg -> .jpg -> .png)
+  function tryNextExt(img, letter) {
+    const current = img.src;
+    const btn = document.getElementById('btn-' + letter);
+    if (current.endsWith('.jpeg')) {
+      img.src = `assets/${letter}.jpg`;
+      if(btn) btn.href = `assets/${letter}.jpg`;
+    } else if (current.endsWith('.jpg')) {
+      img.src = `assets/${letter}.png`;
+      if(btn) btn.href = `assets/${letter}.png`;
+    } else {
+      img.src = 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400'; // placeholder if not yet exported
+    }
+  }
+
+  // Comments / Words Feature
+  function saveWord(letter) {
+    const input = document.getElementById('in-' + letter);
+    const text = input.value.trim();
+    if (!text) return;
+
+    let list = JSON.parse(localStorage.getItem('words_' + letter) || '[]');
+    if (!list.includes(text)) {
+      list.push(text);
+      localStorage.setItem('words_' + letter, JSON.stringify(list));
+    }
+    input.value = '';
+    showWords(letter);
+  }
+
+  function showWords(letter) {
+    const box = document.getElementById('chips-' + letter);
+    if (!box) return;
+    const list = JSON.parse(localStorage.getItem('words_' + letter) || '[]');
+    box.innerHTML = '';
+    list.forEach(w => {
+      const sp = document.createElement('span');
+      sp.className = 'chip';
+      sp.innerText = w;
+      box.appendChild(sp);
+    });
+  }
+</script>
+<script src="assets/app.js"></script>
+</body>
+</html>

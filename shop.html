@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shop | Smart Journey Kids</title>
+  <meta name="description" content="Smart Journey Kids Learning Kits">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .order-note-card {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a href="index.html"><img class="logo-mini" src="assets/smart-journey-kids-logo.png" alt="Smart Journey Kids"></a>
+    <button class="menu" aria-label="Open menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="activities.html">Activities</a>
+      <a href="flashcards.html">A-Z Flashcards</a>
+      <a href="games.html">Games</a>
+      <a href="stories.html">Stories</a>
+      <a href="worksheets.html">Worksheets</a>
+      <a class="active" href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Smart Journey Kids Shop</div>
+      <h1>Learning Kits 🛍️</h1>
+      <p>දරුවන්ට නිවසේදීම ඉගෙනගත හැකි Physical Kits කෙලින්ම WhatsApp හරහා ඇණවුම් කරන්න.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        <div class="card product">
+          <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=900&q=85" alt="Educational learning materials">
+          <span class="badge">FLASHCARDS</span>
+          <h3>Physical Laminated Flashcard Sets</h3>
+          <div class="price">LKR 1,500/=</div>
+          <button class="btn btn-gold" onclick="orderWhatsApp('Physical Laminated Flashcard Sets','1,500','SJK-FC01')">Order on WhatsApp 💬</button>
+        </div>
+
+        <div class="card product">
+          <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=85" alt="Children learning with toys">
+          <span class="badge">TRACING</span>
+          <h3>Reusable Magic-Ink Tracing Books</h3>
+          <div class="price">LKR 1,950/=</div>
+          <button class="btn btn-gold" onclick="orderWhatsApp('Reusable Magic-Ink Tracing Books','1,950','SJK-TB01')">Order on WhatsApp 💬</button>
+        </div>
+
+        <div class="card product">
+          <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=900&q=85" alt="Wooden educational blocks">
+          <span class="badge">MONTESSORI</span>
+          <h3>Montessori Wooden Puzzles & Blocks</h3>
+          <div class="price">LKR 2,750/=</div>
+          <button class="btn btn-gold" onclick="orderWhatsApp('Montessori Wooden Puzzles & Blocks','2,750','SJK-MB01')">Order on WhatsApp 💬</button>
+        </div>
+
+        <div class="card product">
+          <img src="https://images.unsplash.com/photo-1599623560574-39d485900c95?auto=format&fit=crop&w=900&q=85" alt="Kids educational box">
+          <span class="badge">MEGA BOX</span>
+          <h3>All-in-One Early Development Mega Box</h3>
+          <div class="price">LKR 6,950/=</div>
+          <button class="btn btn-gold" onclick="orderWhatsApp('All-in-One Early Development Mega Box','6,950','SJK-MEGA01')">Order on WhatsApp 💬</button>
+        </div>
+      </div>
+
+      <!-- Clean Customer Order Notice -->
+      <div class="order-note-card">
+        <b style="color:#166534; font-size:16px;">🚚 දිවයින පුරා බෙදාහැරීම (Cash on Delivery / Bank Transfer)</b>
+        <p style="margin: 6px 0 0 0; color:#15803d; font-size:14px;">
+          "Order on WhatsApp" බටන් එක ක්ලික් කළ විට ඔබ තෝරාගත් අයිතමයේ විස්තර සහිතව අපගේ නිල WhatsApp අංකය (0785011108) විවෘත වේ.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/smart-journey-kids-logo.png" alt="Smart Journey Kids">
+      <p>Smart Journey Kids</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="activities.html">Activities</a>
+      <a href="games.html">Games</a>
+      <a href="stories.html">Stories</a>
+      <a href="worksheets.html">Worksheets</a>
+    </div>
+    <div>
+      <h4>Shop & Connect</h4>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/94785011108" target="_blank" rel="noopener">WhatsApp: 94785011108</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© <span id="year"></span> Smart Journey Kids</div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

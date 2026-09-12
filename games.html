@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kids Learning Games | Smart Journey Kids 🦁</title>
+  <meta name="description" content="Fun educational games for kids">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .game-nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+    .game-tab-btn {
+      background: #ffffff;
+      border: 2.5px solid #0c2340;
+      color: #0c2340;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .game-tab-btn.active {
+      background: #0c2340;
+      color: #fde047;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(12,35,64,0.2);
+    }
+    .game-arena {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #ffffff;
+      border: 3.5px solid #0c2340;
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(12,35,64,0.08);
+      text-align: center;
+      display: none;
+    }
+    .game-arena.active {
+      display: block;
+    }
+    .status-badge {
+      font-size: 18px;
+      font-weight: 800;
+      color: #0c2340;
+      margin-bottom: 18px;
+      background: #fef08a;
+      padding: 8px 18px;
+      border-radius: 14px;
+      display: inline-block;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 500px) {
+      .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .game-card {
+      aspect-ratio: 1 / 1;
+      background: #0c2340;
+      border: 3px solid #0284c7;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s;
+    }
+    .game-card:hover {
+      transform: scale(1.04);
+    }
+    .game-card.hidden-card {
+      color: transparent;
+      background: #0c2340;
+    }
+    .game-card.hidden-card::after {
+      content: "❓";
+      font-size: 26px;
+    }
+    .game-card.flipped {
+      background: #bae6fd;
+      border-color: #f59e0b;
+    }
+    .game-card.matched {
+      background: #bbf7d0;
+      border-color: #10b981;
+      cursor: default;
+      transform: none;
+    }
+    /* Balloon Game Styling */
+    .balloon-box {
+      height: 320px;
+      background: #f0fdf4;
+      border: 2px dashed #86efac;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .balloon {
+      position: absolute;
+      font-size: 46px;
+      cursor: pointer;
+      user-select: none;
+      animation: floatUp 4s linear forwards;
+    }
+    @keyframes floatUp {
+      0% { bottom: -60px; }
+      100% { bottom: 330px; }
+    }
+    /* Quiz Styling */
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .quiz-opt-btn {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      padding: 14px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+      color: #0c2340;
+    }
+    .quiz-opt-btn:hover {
+      background: #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a href="index.html"><img class="logo-mini" src="assets/smart-journey-kids-logo.png" alt="Smart Journey Kids"></a>
+    <button class="menu" aria-label="Open menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="activities.html">Activities</a>
+      <a href="flashcards.html">A-Z Flashcards</a>
+      <a class="active" href="games.html">Games</a>
+      <a href="stories.html">Stories</a>
+      <a href="worksheets.html">Worksheets</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Interactive Play Zone</div>
+      <h1>Fun Learning Games 🎮</h1>
+      <p>කැමති ක්‍රීඩාවක් තෝරාගෙන සතුටින් සෙල්ලම් කරමු!</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <!-- Category Switcher Tabs -->
+      <div class="game-nav-tabs">
+        <button class="game-tab-btn active" onclick="switchGame('game-animals')">🦁 1. Animals Match</button>
+        <button class="game-tab-btn" onclick="switchGame('game-fruits')">🍎 2. Fruits Match</button>
+        <button class="game-tab-btn" onclick="switchGame('game-vege')">🥕 3. Vegetables Match</button>
+        <button class="game-tab-btn" onclick="switchGame('game-quiz')">💡 4. Picture Quiz</button>
+        <button class="game-tab-btn" onclick="switchGame('game-balloon')">🎈 5. Pop Balloons</button>
+      </div>
+
+      <!-- GAME 1: Animals Match -->
+      <div id="game-animals" class="game-arena active">
+        <h2>Animals Memory Match 🦁</h2>
+        <div id="status-animals" class="status-badge">Find all 4 animal pairs! 🎯</div>
+        <div id="board-animals" class="cards-grid"></div>
+        <button class="btn btn-gold" onclick="startMemoryGame('animals')">↻ Play Again</button>
+      </div>
+
+      <!-- GAME 2: Fruits Match -->
+      <div id="game-fruits" class="game-arena">
+        <h2>Fruits Memory Match 🍎</h2>
+        <div id="status-fruits" class="status-badge">Find all 4 fruit pairs! 🍓</div>
+        <div id="board-fruits" class="cards-grid"></div>
+        <button class="btn btn-gold" onclick="startMemoryGame('fruits')">↻ Play Again</button>
+      </div>
+
+      <!-- GAME 3: Vegetables Match -->
+      <div id="game-vege" class="game-arena">
+        <h2>Vegetables Memory Match 🥕</h2>
+        <div id="status-vege" class="status-badge">Find all 4 vegetable pairs! 🥦</div>
+        <div id="board-vege" class="cards-grid"></div>
+        <button class="btn btn-gold" onclick="startMemoryGame('vege')">↻ Play Again</button>
+      </div>
+
+      <!-- GAME 4: Picture Quiz -->
+      <div id="game-quiz" class="game-arena">
+        <h2>Guess the Word! 💡</h2>
+        <div id="quiz-badge" class="status-badge">Score: 0</div>
+        <div style="font-size: 85px; margin: 15px 0;" id="quiz-icon">🍎</div>
+        <h3 id="quiz-question" style="color:#0c2340;">මේ පලතුරේ නම කුමක්ද?</h3>
+        <div class="quiz-options" id="quiz-options"></div>
+      </div>
+
+      <!-- GAME 5: Pop Balloons -->
+      <div id="game-balloon" class="game-arena">
+        <h2>Pop the Flying Balloons! 🎈</h2>
+        <div class="status-badge" id="balloon-score">Score: 0 🎯</div>
+        <div class="balloon-box" id="balloon-sky"></div>
+        <button class="btn btn-primary" id="btn-balloon-start" onclick="startBalloons()">Start Balloon Game ▶</button>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <img src="assets/smart-journey-kids-logo.png" alt="Smart Journey Kids">
+      <p>Smart Journey Kids</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="activities.html">Activities</a>
+      <a href="flashcards.html">A-Z Flashcards</a>
+      <a href="games.html">Games</a>
+      <a href="worksheets.html">Worksheets</a>
+    </div>
+    <div>
+      <h4>Shop & Connect</h4>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/94785011108" target="_blank" rel="noopener">WhatsApp: 94785011108</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">© <span id="year"></span> Smart Journey Kids</div>
+</footer>
+
+<script>
+  // Tab Switching Logic
+  function switchGame(gameId) {
+    document.querySelectorAll('.game-arena').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.game-tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(gameId).classList.add('active');
+    event.target.classList.add('active');
+
+    if(gameId === 'game-quiz') initQuiz();
+  }
+
+  // Memory Datasets
+  const gameData = {
+    animals: ['🦁', '🐘', '🐯', '🐵'],
+    fruits: ['🍎', '🍌', '🍇', '🍓'],
+    vege: ['🥕', '🥦', '🌽', '🍅']
+  };
+
+  let activeFlips = {};
+
+  function startMemoryGame(type) {
+    const board = document.getElementById(`board-${type}`);
+    const status = document.getElementById(`status-${type}`);
+    board.innerHTML = '';
+    activeFlips[type] = { flipped: [], matched: 0, lock: false };
+    status.innerText = 'Find all 4 pairs! 🎯';
+    status.style.background = '#fef08a';
+
+    const deck = [...gameData[type], ...gameData[type]].sort(() => 0.5 - Math.random());
+
+    deck.forEach(symbol => {
+      const card = document.createElement('div');
+      card.className = 'game-card hidden-card';
+      card.innerText = symbol;
+      card.dataset.sym = symbol;
+      card.onclick = () => onCardClick(card, type);
+      board.appendChild(card);
+    });
+  }
+
+  function onCardClick(card, type) {
+    const state = activeFlips[type];
+    if (state.lock || card === state.flipped[0] || card.classList.contains('matched')) return;
+
+    card.classList.remove('hidden-card');
+    card.classList.add('flipped');
+    state.flipped.push(card);
+
+    if (state.flipped.length === 2) {
+      const [c1, c2] = state.flipped;
+      if (c1.dataset.sym === c2.dataset.sym) {
+        c1.classList.add('matched');
+        c2.classList.add('matched');
+        state.matched++;
+        state.flipped = [];
+        if (state.matched === 4) {
+          const status = document.getElementById(`status-${type}`);
+          status.innerText = '🎉 සුපිරියි! ඔබ ජයග්‍රහණය කළා!';
+          status.style.background = '#bbf7d0';
+        }
+      } else {
+        state.lock = true;
+        setTimeout(() => {
+          c1.classList.add('hidden-card');
+          c2.classList.add('hidden-card');
+          c1.classList.remove('flipped');
+          c2.classList.remove('flipped');
+          state.flipped = [];
+          state.lock = false;
+        }, 800);
+      }
+    }
+  }
+
+  // GAME 4: QUIZ LOGIC
+  const questions = [
+    { icon: '🍎', q: 'මේ පලතුරේ නම කුමක්ද?', ans: 'Apple (ඇපල්)', opts: ['Apple (ඇපල්)', 'Banana', 'Grapes', 'Orange'] },
+    { icon: '🦁', q: 'කැලයේ රජු ලෙස හඳුන්වන්නේ කවුද?', ans: 'Lion (සිංහයා)', opts: ['Elephant', 'Lion (සිංහයා)', 'Tiger', 'Monkey'] },
+    { icon: '🥕', q: 'හාවා කෑමට වඩාත්ම කැමති එළවළුව?', ans: 'Carrot (කැරට්)', opts: ['Tomato', 'Corn', 'Carrot (කැරට්)', 'Broccoli'] },
+    { icon: '🐘', q: 'දිග හොඬවැලක් ඇති සත්වයා කවුද?', ans: 'Elephant (අලියා)', opts: ['Giraffe', 'Zebra', 'Elephant (අලියා)', 'Horse'] }
+  ];
+  let quizIndex = 0;
+  let quizScore = 0;
+
+  function initQuiz() {
+    quizIndex = 0;
+    quizScore = 0;
+    renderQuiz();
+  }
+
+  function renderQuiz() {
+    if(quizIndex >= questions.length) {
+      document.getElementById('quiz-question').innerText = `🎉 සුබ පැතුම්! ඔබ ලකුණු ${quizScore}/${questions.length}ක් ලබාගත්තා!`;
+      document.getElementById('quiz-icon').innerText = '🏆';
+      document.getElementById('quiz-options').innerHTML = `<button class="quiz-opt-btn" onclick="initQuiz()" style="grid-column: span 2;">නැවත සෙල්ලම් කරන්න</button>`;
+      return;
+    }
+    const cur = questions[quizIndex];
+    document.getElementById('quiz-badge').innerText = `Score: ${quizScore}`;
+    document.getElementById('quiz-icon').innerText = cur.icon;
+    document.getElementById('quiz-question').innerText = cur.q;
+
+    const optBox = document.getElementById('quiz-options');
+    optBox.innerHTML = '';
+    cur.opts.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-opt-btn';
+      btn.innerText = opt;
+      btn.onclick = () => {
+        if(opt === cur.ans) quizScore++;
+        quizIndex++;
+        renderQuiz();
+      };
+      optBox.appendChild(btn);
+    });
+  }
+
+  // GAME 5: POP BALLOONS LOGIC
+  let balloonScore = 0;
+  let balloonTimer = null;
+
+  function startBalloons() {
+    const sky = document.getElementById('balloon-sky');
+    const startBtn = document.getElementById('btn-balloon-start');
+    sky.innerHTML = '';
+    balloonScore = 0;
+    document.getElementById('balloon-score').innerText = 'Score: 0 🎯';
+    startBtn.style.display = 'none';
+
+    let count = 0;
+    balloonTimer = setInterval(() => {
+      if(count >= 15) {
+        clearInterval(balloonTimer);
+        setTimeout(() => {
+          alert(`Game Over! ඔබ ලකුණු ${balloonScore}ක් ලබාගත්තා! 🎈`);
+          startBtn.style.display = 'inline-block';
+        }, 3000);
+        return;
+      }
+      createBalloon();
+      count++;
+    }, 700);
+  }
+
+  function createBalloon() {
+    const sky = document.getElementById('balloon-sky');
+    const b = document.createElement('div');
+    const emojis = ['🎈', '🔴', '🟡', '🟢', '🟣'];
+    b.className = 'balloon';
+    b.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    b.style.left = Math.random() * 80 + '%';
+    b.onclick = () => {
+      balloonScore += 10;
+      document.getElementById('balloon-score').innerText = `Score: ${balloonScore} 🎯`;
+      b.remove();
+    };
+    sky.appendChild(b);
+  }
+
+  // Init on Load
+  document.addEventListener('DOMContentLoaded', () => {
+    startMemoryGame('animals');
+    startMemoryGame('fruits');
+    startMemoryGame('vege');
+    initQuiz();
+  });
+</script>
+<script src="assets/app.js"></script>
+</body>
+</html>
