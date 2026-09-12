@@ -26,18 +26,38 @@
     .fc-img-box {
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: #f1f5f9;
+      background: #f8fafc;
       border-bottom: 3px solid #0c2340;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      position: relative;
     }
     .fc-img-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+    .fc-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #eff6ff 0%, #fef3c7 100%);
+    }
+    .fc-fallback .emoji-art {
+      font-size: 85px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .fc-fallback .letter-tag {
+      font-size: 28px;
+      font-weight: 900;
+      color: #0c2340;
     }
     .fc-body {
       padding: 18px;
@@ -162,12 +182,9 @@
       </p>
       
       <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <!-- Download Complete PDF Book Link -->
-        <a href="assets/English Alphabat.pdf" download="English_Alphabet_A-Z_SmartJourneyKids.pdf" class="btn btn-primary" style="background:#0284c7; padding: 10px 22px; font-size:14px; text-decoration: none;">
-          📥 Download Original PDF Book
-        </a>
-        <button onclick="window.print()" class="btn btn-primary" style="background:#10b981; padding: 10px 22px; font-size:14px;">
-          🖨️ Print / Save Cards
+        <!-- Browser PDF Generator (No Heavy Files Needed) -->
+        <button onclick="generateCleanPDF()" class="btn btn-primary" style="background:#10b981; padding: 11px 24px; font-size:15px; border-radius:12px;">
+          📄 Download Full A-Z PDF Book (Print)
         </button>
       </div>
     </div>
@@ -199,41 +216,40 @@
       <h4>Shop & Connect</h4>
       <a href="shop.html">Shop</a>
       <a href="contact.html">Contact</a>
-      <a href="https://wa.me/94770000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://wa.me/94779882111" target="_blank" rel="noopener">WhatsApp: 0779882111</a>
     </div>
   </div>
   <div class="container footer-bottom">© <span id="year"></span> Smart Journey Kids</div>
 </footer>
 
 <script>
-  // Complete list based exactly on your PDF
   const pdfDeck = [
-    { l: 'A', word: 'Apple', sin: 'ඇපල්' },
-    { l: 'B', word: 'Bear', sin: 'වලහා' },
-    { l: 'C', word: 'Cat', sin: 'පූසා' },
-    { l: 'D', word: 'Dog', sin: 'බල්ලා' },
-    { l: 'E', word: 'Elephant', sin: 'අලියා' },
-    { l: 'F', word: 'Fish', sin: 'මාළුවා' },
-    { l: 'G', word: 'Giraffe', sin: 'ජිරාෆ්' },
-    { l: 'H', word: 'Horse', sin: 'අශ්වයා' },
-    { l: 'I', word: 'Igloo', sin: 'ඉග්ලූ (හිම නිවස)' },
-    { l: 'J', word: 'Jellyfish', sin: 'ජෙලිෆිෂ්' },
-    { l: 'K', word: 'Kangaroo', sin: 'කැන්ගරු' },
-    { l: 'L', word: 'Lion', sin: 'සිංහයා' },
-    { l: 'M', word: 'Monkey', sin: 'වඳුරා' },
-    { l: 'N', word: 'Nest', sin: 'කුරුළු කූඩුව' },
-    { l: 'O', word: 'Owl', sin: 'බස්සා' },
-    { l: 'P', word: 'Penguin', sin: 'පෙන්ගුයින්' },
-    { l: 'Q', word: 'Queen', sin: 'රැජින' },
-    { l: 'R', word: 'Rabbit', sin: 'හාවා' },
-    { l: 'S', word: 'Sun', sin: 'සූර්යයා' },
-    { l: 'T', word: 'Tiger', sin: 'කොටියා' },
-    { l: 'U', word: 'Umbrella', sin: 'කුඩය' },
-    { l: 'V', word: 'Van', sin: 'වෑන් රථය' },
-    { l: 'W', word: 'Whale', sin: 'තල්මසා' },
-    { l: 'X', word: 'Xylophone', sin: 'සයිලෆෝනය' },
-    { l: 'Y', word: 'Yak', sin: 'යාක්' },
-    { l: 'Z', word: 'Zebra', sin: 'සීබ්‍රා' }
+    { l: 'A', word: 'Apple', sin: 'ඇපල්', emoji: '🍎' },
+    { l: 'B', word: 'Bear', sin: 'වලහා', emoji: '🧸' },
+    { l: 'C', word: 'Cat', sin: 'පූසා', emoji: '🐱' },
+    { l: 'D', word: 'Dog', sin: 'බල්ලා', emoji: '🐶' },
+    { l: 'E', word: 'Elephant', sin: 'අලියා', emoji: '🐘' },
+    { l: 'F', word: 'Fish', sin: 'මාළුවා', emoji: '🐟' },
+    { l: 'G', word: 'Giraffe', sin: 'ජිරාෆ්', emoji: '🦒' },
+    { l: 'H', word: 'Horse', sin: 'අශ්වයා', emoji: '🐴' },
+    { l: 'I', word: 'Igloo', sin: 'ඉග්ලූ', emoji: '🧊' },
+    { l: 'J', word: 'Jellyfish', sin: 'ජෙලිෆිෂ්', emoji: '🪼' },
+    { l: 'K', word: 'Kangaroo', sin: 'කැන්ගරු', emoji: '🦘' },
+    { l: 'L', word: 'Lion', sin: 'සිංහයා', emoji: '🦁' },
+    { l: 'M', word: 'Monkey', sin: 'වඳුරා', emoji: '🐵' },
+    { l: 'N', word: 'Nest', sin: 'කුරුළු කූඩුව', emoji: '🪺' },
+    { l: 'O', word: 'Owl', sin: 'බස්සා', emoji: '🦉' },
+    { l: 'P', word: 'Penguin', sin: 'පෙන්ගුයින්', emoji: '🐧' },
+    { l: 'Q', word: 'Queen', sin: 'රැජින', emoji: '👑' },
+    { l: 'R', word: 'Rabbit', sin: 'හාවා', emoji: '🐰' },
+    { l: 'S', word: 'Sun', sin: 'සූර්යයා', emoji: '☀️' },
+    { l: 'T', word: 'Tiger', sin: 'කොටියා', emoji: '🐯' },
+    { l: 'U', word: 'Umbrella', sin: 'කුඩය', emoji: '☂️' },
+    { l: 'V', word: 'Van', sin: 'වෑන් රථය', emoji: '🚐' },
+    { l: 'W', word: 'Whale', sin: 'තල්මසා', emoji: '🐋' },
+    { l: 'X', word: 'Xylophone', sin: 'සයිලෆෝනය', emoji: '🎼' },
+    { l: 'Y', word: 'Yak', sin: 'යාක්', emoji: '🐂' },
+    { l: 'Z', word: 'Zebra', sin: 'සීබ්‍රා', emoji: '🦓' }
   ];
 
   const container = document.getElementById('deckContainer');
@@ -242,12 +258,12 @@
     const card = document.createElement('div');
     card.className = 'fc-card';
 
-    // File path paths support .jpeg, .jpg, uppercase & lowercase in assets/
-    const imgPath = `assets/${item.l}.jpeg`;
+    // Check paths for local assets
+    const primaryPath = `assets/${item.l}.jpeg`;
 
     card.innerHTML = `
       <div class="fc-img-box">
-        <img id="img-${item.l}" src="${imgPath}" alt="${item.word}" onerror="tryNextExt(this, '${item.l}')">
+        <img id="img-${item.l}" src="${primaryPath}" alt="${item.word}" onerror="handleImgError(this, '${item.l}', '${item.word}', '${item.emoji}')">
       </div>
       <div class="fc-body">
         <div class="fc-header">
@@ -255,7 +271,7 @@
           <span class="fc-badge">${item.word}</span>
         </div>
         <div class="fc-sin">${item.sin}</div>
-        <a id="btn-${item.l}" href="${imgPath}" download="${item.l}_for_${item.word}.jpeg" class="btn-down">📥 Download Card (${item.l})</a>
+        <a id="btn-${item.l}" href="${primaryPath}" download="${item.l}_for_${item.word}.jpeg" class="btn-down">📥 Download Card (${item.l})</a>
         <div class="comment-area">
           <label style="font-size:11px; font-weight:bold; color:#475569; display:block; margin-bottom:4px;">${item.l} අකුරෙන් තවත් වචන:</label>
           <div class="chips-container" id="chips-${item.l}"></div>
@@ -270,18 +286,24 @@
     showWords(item.l);
   });
 
-  // Image extension fallback checker (.jpeg -> .jpg -> .png)
-  function tryNextExt(img, letter) {
+  // Safe fallback to clean 3D Emojis when image is not present
+  function handleImgError(img, letter, word, emoji) {
     const current = img.src;
-    const btn = document.getElementById('btn-' + letter);
     if (current.endsWith('.jpeg')) {
       img.src = `assets/${letter}.jpg`;
-      if(btn) btn.href = `assets/${letter}.jpg`;
     } else if (current.endsWith('.jpg')) {
       img.src = `assets/${letter}.png`;
-      if(btn) btn.href = `assets/${letter}.png`;
     } else {
-      img.src = 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=400'; // placeholder if not yet exported
+      // Replace image with clean illustrated emoji fallback card
+      const parent = img.parentElement;
+      parent.innerHTML = `
+        <div class="fc-fallback">
+          <div class="emoji-art">${emoji}</div>
+          <div class="letter-tag">${letter} is for ${word}</div>
+        </div>
+      `;
+      const btn = document.getElementById('btn-' + letter);
+      if(btn) btn.style.display = 'none'; // hide download button if no file
     }
   }
 
@@ -311,6 +333,42 @@
       sp.innerText = w;
       box.appendChild(sp);
     });
+  }
+
+  // Instant In-Browser Printable PDF
+  function generateCleanPDF() {
+    const win = window.open('', '_blank');
+    let pages = `
+      <!doctype html>
+      <html>
+      <head>
+        <title>Smart Journey Kids - A to Z Book</title>
+        <style>
+          body { font-family: sans-serif; text-align: center; margin: 0; padding: 20px; }
+          .sheet { page-break-after: always; height: 90vh; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 4px solid #0c2340; border-radius: 24px; padding: 20px; margin-bottom: 20px; }
+          h1 { font-size: 85px; color: #0c2340; margin: 0; }
+          .sym { font-size: 110px; margin: 20px 0; }
+          h2 { font-size: 40px; color: #0284c7; margin: 10px 0; }
+          p { font-size: 24px; color: #475569; font-weight: bold; }
+        </style>
+      </head>
+      <body>
+    `;
+
+    pdfDeck.forEach(i => {
+      pages += `
+        <div class="sheet">
+          <h1>${i.l} ${i.l.toLowerCase()}</h1>
+          <div class="sym">${i.emoji}</div>
+          <h2>${i.word}</h2>
+          <p>${i.sin}</p>
+        </div>
+      `;
+    });
+
+    pages += `<script>window.print();<\/script></body></html>`;
+    win.document.write(pages);
+    win.document.close();
   }
 </script>
 <script src="assets/app.js"></script>
